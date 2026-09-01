@@ -41,5 +41,11 @@ footer{margin-top:60px;background:#352e32;color:#eee;padding:30px 18px} .foot{ma
 </main><footer><div class="foot"><div><strong>Pink Lady</strong><div class="small">Prosperity Group</div></div><div class="small">STYLE ♥ COMFORT ♥ CONFIDENCE</div></div></footer>
 <script>
 fetch('latest.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(p=>{if(!p)return;const q=id=>document.getElementById(id);if(p.title)q('latestTitle').textContent=p.title;if(p.text)q('latestText').textContent=p.text;if(p.date)q('latestDate').textContent=p.date;if(p.url)q('latestLink').href=p.url;if(p.image){q('latestImage').src=p.image;q('latestVisual').classList.add('has-image')}}).catch(()=>{});
+const quickOrder=document.createElement('section');
+quickOrder.setAttribute('aria-label','How to order');
+quickOrder.innerHTML='<div style="max-width:1144px;margin:0 auto 18px;padding:14px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#fff;border:1px solid #f6c4d4;border-radius:20px;box-shadow:0 10px 25px #7d536012"><img src="stock/pink-lady-line-qr.png" alt="Pink Lady LINE QR code" style="width:68px;height:68px;object-fit:contain;border-radius:10px"><div style="flex:1;min-width:205px"><strong style="color:#ec3975;font-size:1.05rem">สั่งซื้อ / สอบถามได้เลย</strong><br><span style="color:#51434a">สแกน QR เพื่อเพิ่มเพื่อนใน LINE หรือทัก Facebook Page</span></div><div class="actions"><a class="btn primary" href="tel:+66854649466">LINE / โทร 085-464-9466</a><a class="btn" href="https://www.facebook.com/pinkladyshop.udon" target="_blank" rel="noopener">Facebook Page</a></div></div>';
+document.querySelector('.hero').insertAdjacentElement('afterend',quickOrder);
+const contactActions=document.querySelector('#contact .actions');
+if(contactActions)contactActions.innerHTML='<a class="btn primary" href="https://www.facebook.com/pinkladyshop.udon" target="_blank" rel="noopener">Facebook Shop</a><a class="btn" href="tel:+66854649466">โทร 085-464-9466</a><a class="btn" href="https://www.tiktok.com/@pinkladyudon" target="_blank" rel="noopener">TikTok</a>';
 </script>
 </body></html>
